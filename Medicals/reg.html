@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NAM Pharmacy-Registration</title>
+    <link rel="icon" href="images/logocircle.png" type="image/gif">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+    <link rel="stylesheet" href="styles1.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script type="text/javascript">
+    	function fun(){
+
+    		var name = document.reg.name.value;
+    		var email = document.reg.email.value;
+    		var mob = document.reg.mob.value;
+    		var address = document.reg.address.value;
+    		var pass = document.reg.password.value;
+
+    		var ob = new XMLHttpRequest();
+
+    		ob.onreadystatechange = function fun2(){
+    			if(ob.readyState==4){
+    				document.getElementById("pass").innerHTML = ob.responseText;
+    			}
+    		}
+    	ob.open("post","ProcessReg.jsp?name="+name+"&email="+email+"&mob="+mob+"&address="+address+"&password"+pass,true);
+    	ob.send();
+    }
+    </script>
+</head>
+<body>
+  <div class="logo1">
+      <img class ="logo" src ="images/logo.png"alt="">
+  </div>
+
+    <div class="main">
+
+        <div class="left-side">
+            <img src="images/cuptab.jpg" alt="">
+        </div>
+        <div class="left-side">
+
+            <h1>Register</h1>
+            <div>
+            <form name="reg">
+            <div>
+                <i class="fas fa-user"></i>
+                <input type="text" placeholder="Enter Your Full Name" name="name">
+            </div>
+            <div>
+                <i class="fas fa-envelope"></i>
+                <input type="email" placeholder="Enter Your Mail Id" name="email">
+            </div>
+            <div>
+                <i class="fas fa-phone"></i>
+                <input type="text" placeholder="Enter Your Mobile Number" name="mob">
+            </div>
+            <div>
+                <i class="fas fa-map-marker-alt"></i>
+                <input type="text" placeholder="Enter Your Address" name="address">
+            </div>
+            <div>
+                <i class="fas fa-key"></i>
+                <input type="password" placeholder="Set Your Password" name="password">
+                <div id="pass" style="float: left;">
+
+                </div>
+            </div>
+            <div>
+                <i class="fas fa-key"></i>
+                <input type="password" placeholder="Retype Your Password" name ="pass2">
+            </div>
+            <button type="submit" onclick="fun()">Register</button>
+            <br>
+              <a class="linkk"style="text-decoration:none;"href="login.jsp">Already A User? Login</a>
+       	</form>
+        </div>
+        </div>
+    </div>
+</body>
+</html>
